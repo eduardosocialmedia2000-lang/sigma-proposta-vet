@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assessoria Sigma — Proposta Comercial Exclusiva</title>
+  <meta name="description" content="Transformamos atendimento em receita previsível para clínicas veterinárias.">
+  <meta property="og:title" content="Assessoria Sigma — Proposta Comercial Exclusiva">
+  <meta property="og:description" content="Para clínicas veterinárias que já têm movimento — mas ainda não têm controle.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <style>
+    /* ===========================
+       RESET & CUSTOM PROPERTIES
+    =========================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:           #080d1a;
+      --card:         #0d1525;
+      --card2:        #101a2e;
+      --border:       rgba(212,175,100,0.13);
+      --border-h:     rgba(212,175,100,0.40);
+      --gold:         #d4af64;
+      --gold-dk:      #a8841e;
+      --gold-lt:      #f5d76e;
+      --green:        #00c896;
+      --text:         #ffffff;
+      --muted:        #8899aa;
+      --hero-bg:      radial-gradient(ellipse at top, #1a1200 0%, #080d1a 60%);
+      --title:        'Cormorant Garamond', Georgia, serif;
+      --body:         'DM Sans', -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--body);
+      font-weight: 400;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 { font-family: var(--title); line-height: 1.12; }
+
+    /* ===========================
+       UTILITIES
+    =========================== */
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 28px; }
+    section    { padding: 108px 0; }
+
+    .badge {
+      display: inline-block;
+      font-family: var(--body);
+      font-size: 10.5px;
+      font-weight: 500;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--border-h);
+      padding: 6px 18px;
+      border-radius: 2px;
+      margin-bottom: 24px;
+    }
+
+    .section-title {
+      font-size: clamp(36px, 5vw, 58px);
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    .section-sub {
+      font-size: 18px;
+      color: var(--muted);
+      font-weight: 300;
+      margin-bottom: 56px;
+      max-width: 600px;
+    }
+
+    .centered { text-align: center; }
+    .centered .section-sub { margin-left: auto; margin-right: auto; }
+
+    .gold-line-full {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, var(--gold) 30%, var(--gold) 70%, transparent 100%);
+      opacity: .35;
+    }
+
+    /* ===========================
+       REVEAL ANIMATION
+    =========================== */
+    .rv {
+      opacity: 0;
+      transform: translateY(42px);
+      transition: opacity .75s ease, transform .75s ease;
+    }
+    .rv.in { opacity: 1; transform: none; }
+    .d1 { transition-delay: .10s; }
+    .d2 { transition-delay: .20s; }
+    .d3 { transition-delay: .30s; }
+    .d4 { transition-delay: .40s; }
+    .d5 { transition-delay: .50s; }
+
+    /* ===========================
+       SCROLL PROGRESS
+    =========================== */
+    #sp {
+      position: fixed; top: 0; left: 0; height: 2px; width: 0%;
+      background: linear-gradient(90deg, var(--gold-dk), var(--gold), var(--gold-lt));
+      z-index: 300; transition: width .08s linear;
+    }
+
+    /* ===========================
+       NAVBAR
+    =========================== */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      padding: 22px 0;
+      transition: background .3s, padding .3s, border-color .3s;
+      border-bottom: 1px solid transparent;
+    }
+    .nav.s {
+      background: rgba(8,13,26,.93);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      padding: 14px 0;
+      border-bottom-color: var(--border);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: var(--title); font-size: 17px; font-weight: 600;
+      letter-spacing: 3.5px; text-transform: uppercase; color: var(--text);
+      text-decoration: none; position: relative; padding-bottom: 5px;
+    }
+    .nav-logo::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+      height: 1px; background: var(--gold);
+    }
+    .nav-menu { display: flex; align-items: center; gap: 34px; list-style: none; }
+    .nav-menu a {
+      font-size: 12px; font-weight: 400; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--muted); text-decoration: none;
+      transition: color .2s;
+    }
+    .nav-menu a:hover { color: var(--gold); }
+    .nav-cta {
+      color: #080d1a !important;
+      background: var(--gold);
+      padding: 8px 20px !important;
+      border-radius: 2px;
+      transition: opacity .2s !important;
+    }
+    .nav-cta:hover { opacity: .85 !important; }
+
+    .burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .burger span { display: block; width: 24px; height: 1.5px; background: var(--text); transition: .3s; }
+
+    .mob-menu {
+      display: none; position: fixed; inset: 0; z-index: 199;
+      background: rgba(8,13,26,.98); flex-direction: column;
+      align-items: center; justify-content: center; gap: 36px;
+    }
+    .mob-menu.open { display: flex; }
+    .mob-menu a {
+      font-family: var(--title); font-size: 30px; font-weight: 600;
+      color: var(--text); text-decoration: none; transition: color .2s;
+    }
+    .mob-menu a:hover { color: var(--gold); }
+    .mob-close {
+      position: absolute; top: 24px; right: 28px; background: none; border: none;
+      color: var(--muted); font-size: 26px; cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .nav-menu { display: none; }
+      .burger { display: flex; }
+    }
+
+    /* ===========================
+       HERO
+    =========================== */
+    #hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center;
+      background: var(--hero-bg);
+      position: relative; overflow: hidden;
+      padding: 120px 0 90px;
+    }
+    .hero-orb {
+      position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 700px; height: 380px;
+      background: radial-gradient(ellipse, rgba(212,175,100,.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-hline {
+      position: absolute; top: 50%; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, rgba(212,175,100,.28) 25%, rgba(212,175,100,.28) 75%, transparent 100%);
+      animation: hpulse 3.2s ease-in-out infinite;
+    }
+    @keyframes hpulse { 0%,100%{opacity:.35} 50%{opacity:1} }
+
+    .hero-badge {
+      display: inline-block; font-family: var(--body); font-size: 10px; font-weight: 500;
+      letter-spacing: 4.5px; text-transform: uppercase; color: var(--gold);
+      border: 1px solid var(--border-h); padding: 8px 22px; border-radius: 2px;
+      margin-bottom: 38px;
+    }
+    .hero-h1 {
+      font-size: clamp(46px, 7.5vw, 84px); font-weight: 600;
+      line-height: 1.08; max-width: 880px; margin: 0 auto 26px;
+      letter-spacing: -.5px;
+    }
+    .hero-h1 em { color: var(--gold); font-style: normal; }
+    .hero-p {
+      font-size: clamp(16px, 2vw, 20px); color: var(--muted); font-weight: 300;
+      max-width: 520px; margin: 0 auto 56px; line-height: 1.75;
+    }
+    .hero-sep {
+      width: 120px; height: 1px; margin: 0 auto 36px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .hero-brand { font-family: var(--title); font-size: 22px; font-weight: 600; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 8px; }
+    .hero-tag  { font-size: 11px; letter-spacing: 3.5px; text-transform: uppercase; color: var(--gold); font-weight: 400; }
+
+    .hero-scroll {
+      position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      color: var(--muted); font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase;
+      animation: sbounce 2s ease-in-out infinite;
+    }
+    @keyframes sbounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(7px)} }
+    .hero-scroll-bar { width: 1px; height: 38px; background: linear-gradient(180deg, var(--gold), transparent); }
+
+    /* ===========================
+       PROBLEMA
+    =========================== */
+    #problema { background: var(--bg); }
+
+    .prob-intro {
+      font-size: 17.5px; color: var(--muted); font-weight: 300;
+      max-width: 650px; margin-bottom: 60px; line-height: 1.85;
+    }
+    .prob-grid {
+      display: grid; grid-template-columns: repeat(2,1fr); gap: 24px; margin-bottom: 64px;
+    }
+    .prob-card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 4px;
+      padding: 34px; transition: border-color .3s, transform .3s, box-shadow .3s;
+    }
+    .prob-card:hover {
+      border-color: var(--border-h); transform: translateY(-5px);
+      box-shadow: 0 24px 64px rgba(212,175,100,.08);
+    }
+    .prob-icon { width: 44px; height: 44px; color: var(--gold); margin-bottom: 20px; }
+    .prob-card h3 { font-family: var(--title); font-size: 23px; font-weight: 600; margin-bottom: 10px; }
+    .prob-card p  { font-size: 14.5px; color: var(--muted); line-height: 1.75; }
+
+    .prob-impact {
+      text-align: center; padding: 44px 20px;
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    }
+    .prob-impact p {
+      font-family: var(--title); font-size: clamp(22px, 3.5vw, 34px);
+      font-style: italic; font-weight: 400; color: var(--gold);
+      max-width: 740px; margin: 0 auto; line-height: 1.5;
+    }
+
+    @media (max-width: 600px) { .prob-grid { grid-template-columns: 1fr; } }
+
+    /* ===========================
+       MECANISMO
+    =========================== */
+    #mecanismo { background: var(--card); }
+
+    .mec-intro {
+      font-size: 17px; color: var(--muted); max-width: 700px;
+      margin-bottom: 72px; line-height: 1.85;
+    }
+
+    .timeline {
+      position: relative;
+      display: flex; align-items: flex-start; gap: 0;
+      margin-bottom: 72px;
+    }
+    .timeline::before {
+      content: ''; position: absolute;
+      top: 27px; left: 50px; right: 50px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold) 8%, var(--gold) 92%, transparent);
+      opacity: .35;
+    }
+    .tl-step {
+      flex: 1; display: flex; flex-direction: column; align-items: center;
+      text-align: center; padding: 0 10px; position: relative;
+    }
+    .tl-num {
+      width: 54px; height: 54px; border-radius: 50%;
+      background: var(--bg); border: 1px solid var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--title); font-size: 13px; font-weight: 600;
+      letter-spacing: 1px; color: var(--gold);
+      margin-bottom: 18px; position: relative; z-index: 1; flex-shrink: 0;
+    }
+    .tl-title {
+      font-family: var(--title); font-size: 14px; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase; color: var(--gold);
+      margin-bottom: 10px; line-height: 1.3;
+    }
+    .tl-desc { font-size: 13px; color: var(--muted); line-height: 1.65; }
+
+    .mec-quote {
+      text-align: center; padding-top: 52px; border-top: 1px solid var(--border);
+    }
+    .mec-quote p {
+      font-family: var(--title); font-size: clamp(21px, 3vw, 30px);
+      font-style: italic; font-weight: 300; color: var(--gold); line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .timeline { flex-direction: column; align-items: center; gap: 40px; }
+      .timeline::before { top: 0; left: 50%; right: auto; bottom: 0; width: 1px; height: 100%; }
+      .tl-step { max-width: 320px; }
+    }
+
+    /* ===========================
+       PROVA
+    =========================== */
+    #prova { background: var(--bg); }
+
+    .proof-card {
+      background: linear-gradient(140deg, rgba(212,175,100,.08) 0%, var(--card) 55%);
+      border: 1px solid rgba(212,175,100,.38);
+      border-radius: 4px; padding: 52px 60px;
+      max-width: 880px; margin: 0 auto 52px;
+    }
+    .proof-head {
+      display: flex; align-items: flex-start; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+      margin-bottom: 40px; padding-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+    }
+    .proof-name   { font-family: var(--title); font-size: 30px; font-weight: 700; margin-bottom: 6px; }
+    .proof-detail { font-size: 13.5px; color: var(--muted); letter-spacing: 1px; }
+    .proof-lbl {
+      background: rgba(212,175,100,.1); border: 1px solid rgba(212,175,100,.3);
+      padding: 6px 14px; border-radius: 2px; font-size: 10.5px; font-weight: 500;
+      letter-spacing: 2px; color: var(--gold); text-transform: uppercase; white-space: nowrap;
+      align-self: flex-start;
+    }
+    .proof-metrics {
+      display: grid; grid-template-columns: repeat(4,1fr); gap: 32px;
+    }
+    .proof-met { text-align: center; }
+    .proof-num {
+      font-family: var(--title); font-size: clamp(30px, 4vw, 46px); font-weight: 700;
+      color: var(--gold); display: block; line-height: 1; margin-bottom: 10px;
+    }
+    .proof-lbl2 { font-size: 11.5px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
+
+    .proof-caption { text-align: center; }
+    .proof-caption p {
+      font-family: var(--title); font-size: clamp(19px, 2.5vw, 25px);
+      font-weight: 400; color: var(--muted); font-style: italic; line-height: 1.65;
+    }
+    .proof-caption strong { color: var(--gold); font-style: normal; font-weight: 600; }
+
+    @media (max-width: 640px) {
+      .proof-metrics { grid-template-columns: repeat(2,1fr); }
+      .proof-card { padding: 32px 24px; }
+    }
+
+    /* ===========================
+       OFERTAS
+    =========================== */
+    #ofertas { background: var(--card); }
+
+    .offers-row1 { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-bottom: 24px; }
+    .offers-row2 { display: grid; grid-template-columns: repeat(2,1fr); gap: 24px; max-width: 800px; margin: 0 auto; }
+
+    .oc {
+      background: var(--bg); border: 1px solid var(--border); border-radius: 4px;
+      padding: 34px; display: flex; flex-direction: column;
+      transition: border-color .3s, transform .3s, box-shadow .3s;
+    }
+    .oc:hover {
+      border-color: var(--border-h); transform: translateY(-6px);
+      box-shadow: 0 28px 80px rgba(212,175,100,.11);
+    }
+    .oc.feat {
+      border-color: rgba(212,175,100,.45);
+      background: linear-gradient(160deg, rgba(212,175,100,.07) 0%, var(--bg) 100%);
+    }
+    .oc.feat:hover { box-shadow: 0 28px 80px rgba(212,175,100,.2); }
+
+    .oc-badge {
+      font-size: 10px; font-weight: 500; letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--gold); border: 1px solid var(--border-h); padding: 4px 12px;
+      border-radius: 2px; display: inline-block; margin-bottom: 20px; align-self: flex-start;
+    }
+    .oc-badge.gb { color: var(--green); border-color: rgba(0,200,150,.3); }
+
+    .oc-title { font-family: var(--title); font-size: 25px; font-weight: 700; margin-bottom: 6px; }
+
+    .oc-price {
+      font-family: var(--title); font-size: 33px; font-weight: 700;
+      color: var(--gold); margin-bottom: 3px;
+    }
+    .oc-price sub { font-size: 18px; color: var(--muted); }
+    .oc-note  { font-size: 12.5px; color: var(--muted); margin-bottom: 20px; }
+
+    .oc-desc  { font-size: 14px; color: var(--muted); line-height: 1.75; margin-bottom: 20px; flex: 1; }
+
+    .oc-inc-title {
+      font-size: 10.5px; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 12px;
+    }
+    .oc-inc ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .oc-inc li {
+      font-size: 13px; color: var(--muted); padding-left: 18px; position: relative; line-height: 1.5;
+    }
+    .oc-inc li::before {
+      content: ''; position: absolute; left: 0; top: 9px;
+      width: 7px; height: 1px; background: var(--gold);
+    }
+
+    .oc-phases { display: flex; flex-direction: column; gap: 13px; margin-bottom: 20px; }
+    .oc-ph { display: flex; gap: 12px; align-items: flex-start; }
+    .oc-ph-n {
+      font-family: var(--title); font-size: 11px; font-weight: 700; color: var(--gold);
+      letter-spacing: 1px; white-space: nowrap; min-width: 26px; padding-top: 2px;
+    }
+    .oc-ph-t { font-size: 13px; color: var(--muted); line-height: 1.55; }
+    .oc-ph-t strong { color: var(--text); font-weight: 500; }
+
+    .oc-ideal {
+      margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border);
+      font-size: 12px; color: var(--muted); font-style: italic;
+    }
+    .oc-ideal span { color: var(--gold); }
+
+    .oc-nota {
+      margin-top: 14px; padding: 12px 14px;
+      background: rgba(212,175,100,.05); border-left: 2px solid rgba(212,175,100,.3);
+      border-radius: 0 3px 3px 0; font-size: 12px; color: var(--muted); line-height: 1.65;
+    }
+
+    /* --- teaser / accordion --- */
+    .oc-tagline {
+      font-family: var(--title); font-size: 18px; font-style: italic; font-weight: 300;
+      color: var(--muted); line-height: 1.65; margin-bottom: 28px; flex: 1;
+    }
+    .oc-reveal-btn {
+      display: flex; align-items: center; justify-content: space-between;
+      width: 100%; background: transparent; border: 1px solid var(--border-h);
+      color: var(--gold); font-family: var(--body); font-size: 11.5px; font-weight: 500;
+      letter-spacing: 2.5px; text-transform: uppercase; padding: 13px 18px;
+      border-radius: 2px; cursor: pointer; transition: background .25s, border-color .25s;
+      margin-top: auto;
+    }
+    .oc-reveal-btn:hover { background: rgba(212,175,100,.07); }
+    .oc-reveal-btn.open  { background: rgba(212,175,100,.1); border-color: var(--gold); }
+    .oc-reveal-btn svg   { transition: transform .38s ease; flex-shrink: 0; }
+    .oc-reveal-btn.open svg { transform: rotate(180deg); }
+
+    .oc-panel {
+      max-height: 0; overflow: hidden; opacity: 0;
+      transition: max-height .55s ease, opacity .4s ease, margin .4s ease;
+      margin-top: 0;
+    }
+    .oc-panel.open { max-height: 800px; opacity: 1; margin-top: 24px; }
+    .oc-panel-in   { padding-top: 22px; border-top: 1px solid var(--border); }
+
+    @media (max-width: 900px) {
+      .offers-row1 { grid-template-columns: 1fr; }
+      .offers-row2 { grid-template-columns: 1fr; max-width: 100%; }
+    }
+
+    /* ===========================
+       DIFERENCIAIS
+    =========================== */
+    #diferenciais { background: var(--bg); }
+
+    .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-bottom: 64px; }
+    .diff-col {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 4px; padding: 42px;
+    }
+    .diff-col-t {
+      font-family: var(--title); font-size: 21px; font-weight: 600;
+      margin-bottom: 26px; padding-bottom: 16px; border-bottom: 1px solid var(--border);
+    }
+    .diff-col.neg .diff-col-t { color: var(--muted); }
+    .diff-col.pos .diff-col-t { color: var(--gold); }
+    .diff-ul { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+    .diff-ul li { font-size: 15px; display: flex; align-items: flex-start; gap: 12px; line-height: 1.5; }
+    .diff-ul.pos li { color: var(--text); }
+    .diff-ul.neg li { color: var(--muted); }
+    .ix { color: rgba(255,90,90,.5); flex-shrink: 0; font-size: 15px; margin-top: 1px; }
+    .ic { color: var(--green); flex-shrink: 0; font-size: 15px; margin-top: 1px; }
+
+    .diff-quote {
+      text-align: center; padding: 44px 20px;
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    }
+    .diff-quote p {
+      font-family: var(--title); font-size: clamp(21px, 3vw, 30px);
+      font-style: italic; font-weight: 300; color: var(--gold);
+      max-width: 660px; margin: 0 auto; line-height: 1.6;
+    }
+
+    @media (max-width: 640px) { .diff-grid { grid-template-columns: 1fr; } }
+
+    /* ===========================
+       JORNADA
+    =========================== */
+    #jornada { background: var(--card); }
+
+    .jrn-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+    .jrn-card {
+      background: var(--bg); border: 1px solid var(--border); border-radius: 4px;
+      padding: 44px 34px; text-align: center;
+      transition: border-color .3s, transform .3s;
+    }
+    .jrn-card:hover { border-color: var(--border-h); transform: translateY(-5px); }
+    .jrn-icon { width: 54px; height: 54px; color: var(--gold); margin: 0 auto 24px; }
+    .jrn-phase { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+    .jrn-title { font-family: var(--title); font-size: 28px; font-weight: 600; margin-bottom: 16px; }
+    .jrn-desc  { font-size: 14.5px; color: var(--muted); line-height: 1.75; }
+
+    @media (max-width: 768px) { .jrn-grid { grid-template-columns: 1fr; } }
+
+    /* ===========================
+       CTA
+    =========================== */
+    #cta {
+      background: radial-gradient(ellipse at top, #1a1200 0%, #060b16 100%);
+      text-align: center; position: relative; overflow: hidden;
+    }
+    #cta::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent); opacity: .5;
+    }
+    .cta-orb {
+      position: absolute; top: -80px; left: 50%; transform: translateX(-50%);
+      width: 700px; height: 420px;
+      background: radial-gradient(ellipse, rgba(212,175,100,.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-h2 {
+      font-size: clamp(42px, 6.5vw, 76px); font-weight: 600; line-height: 1.12;
+      max-width: 780px; margin: 0 auto 26px; position: relative;
+    }
+    .cta-h2 em { color: var(--gold); font-style: normal; }
+    .cta-p {
+      font-size: 18px; color: var(--muted); max-width: 480px;
+      margin: 0 auto 50px; line-height: 1.75; font-weight: 300;
+    }
+    .cta-btns { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; }
+
+    .btn-p {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--gold); color: #080d1a; font-weight: 600;
+      font-size: 13.5px; letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 17px 38px; border-radius: 2px; text-decoration: none;
+      transition: opacity .2s, transform .2s, box-shadow .2s;
+    }
+    .btn-p:hover { opacity: .9; transform: translateY(-2px); box-shadow: 0 16px 48px rgba(212,175,100,.3); }
+
+    .btn-s {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: transparent; color: var(--text);
+      font-weight: 400; font-size: 13.5px; letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 16px 38px; border-radius: 2px; border: 1px solid var(--border-h);
+      text-decoration: none; transition: border-color .2s, color .2s, transform .2s;
+    }
+    .btn-s:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+
+    /* ===========================
+       FOOTER
+    =========================== */
+    footer {
+      background: #050810; border-top: 1px solid var(--border);
+      padding: 52px 0; text-align: center;
+    }
+    .ft-logo { font-family: var(--title); font-size: 20px; font-weight: 600; letter-spacing: 4.5px; text-transform: uppercase; margin-bottom: 8px; }
+    .ft-tag  { font-size: 11px; letter-spacing: 3.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 26px; }
+    .ft-div  { width: 60px; height: 1px; background: var(--gold); opacity: .35; margin: 0 auto 26px; }
+    .ft-info { font-size: 13px; color: var(--muted); line-height: 2.1; }
+    .ft-info a { color: var(--muted); text-decoration: none; transition: color .2s; }
+    .ft-info a:hover { color: var(--gold); }
+    .ft-copy { margin-top: 24px; font-size: 11.5px; color: rgba(136,153,170,.45); }
+
+    /* ===========================
+       FLOATING WHATSAPP
+    =========================== */
+    .wa-float {
+      position: fixed; bottom: 28px; right: 28px; z-index: 150;
+      display: flex; align-items: center; gap: 10px;
+      background: #25D366; color: #fff; text-decoration: none;
+      padding: 13px 20px 13px 15px; border-radius: 50px;
+      font-size: 13px; font-weight: 500;
+      box-shadow: 0 8px 32px rgba(37,211,102,.3);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .wa-float:hover { transform: translateY(-3px); box-shadow: 0 14px 44px rgba(37,211,102,.45); }
+    .wa-float svg { flex-shrink: 0; }
+
+    @media (max-width: 480px) {
+      .wa-float span { display: none; }
+      .wa-float { padding: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Barra de progresso -->
+<div id="sp"></div>
+
+<!-- Menu mobile -->
+<div class="mob-menu" id="mobMenu">
+  <button class="mob-close" id="mobClose">✕</button>
+  <a href="#problema"   onclick="mobOff()">Problema</a>
+  <a href="#mecanismo"  onclick="mobOff()">Metodologia</a>
+  <a href="#prova"      onclick="mobOff()">Resultados</a>
+  <a href="#ofertas"    onclick="mobOff()">Ofertas</a>
+  <a href="#cta"        onclick="mobOff()">Contato</a>
+</div>
+
+<!-- ===================== NAVBAR ===================== -->
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#hero" class="nav-logo">Assessoria Sigma</a>
+    <ul class="nav-menu">
+      <li><a href="#problema">Problema</a></li>
+      <li><a href="#mecanismo">Metodologia</a></li>
+      <li><a href="#prova">Resultados</a></li>
+      <li><a href="#ofertas">Ofertas</a></li>
+      <li><a href="#cta" class="nav-cta">Falar com a Sigma</a></li>
+    </ul>
+    <div class="burger" onclick="mobOn()"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<section id="hero">
+  <div class="hero-orb"></div>
+  <div class="hero-hline"></div>
+
+  <div class="container" style="position:relative;z-index:1">
+    <div class="hero-badge rv">PROPOSTA COMERCIAL EXCLUSIVA</div>
+
+    <h1 class="hero-h1 rv d1">
+      Transformamos atendimento em<br>
+      <em>receita previsível.</em>
+    </h1>
+
+    <p class="hero-p rv d2">
+      Para clínicas veterinárias que já têm movimento<br>
+      — mas ainda não têm controle.
+    </p>
+
+    <div class="hero-sep rv d3"></div>
+
+    <div class="rv d4">
+      <div class="hero-brand">Assessoria Sigma</div>
+      <div class="hero-tag">Movimento. Decisão. Previsibilidade.</div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="hero-scroll-bar"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ===================== PROBLEMA ===================== -->
+<section id="problema">
+  <div class="container">
+    <div class="rv"><span class="badge">O DIAGNÓSTICO</span></div>
+    <h2 class="section-title rv d1">Por que clínicas excelentes<br>ficam travadas?</h2>
+    <p class="section-sub rv d2" style="font-family:var(--title);font-size:21px;font-style:italic;">Não é falta de esforço. É ausência de sistema.</p>
+
+    <p class="prob-intro rv d3">
+      O mercado ensinou sua clínica a atrair mais, postar mais, anunciar mais. Mas nunca ensinou a proteger, converter e reaproveitar a receita que já entra.
+    </p>
+
+    <div class="prob-grid">
+
+      <div class="prob-card rv d1">
+        <!-- Ícone: calendário com X -->
+        <svg class="prob-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="10" y1="14" x2="14" y2="18"/><line x1="14" y1="14" x2="10" y2="18"/>
+        </svg>
+        <h3>Agenda irregular</h3>
+        <p>Faltas tratadas como normais. Dias cheios e dias vazios sem explicação. Ociosidade invisível no faturamento.</p>
+      </div>
+
+      <div class="prob-card rv d2">
+        <!-- Ícone: balão de fala com ! -->
+        <svg class="prob-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><line x1="12" y1="8" x2="12" y2="12"/><circle cx="12" cy="15.5" r=".5" fill="currentColor"/>
+        </svg>
+        <h3>Orçamentos esquecidos</h3>
+        <p>Lead chega, pede preço, some. Ninguém vai atrás. A receita evapora antes de entrar no caixa.</p>
+      </div>
+
+      <div class="prob-card rv d3">
+        <!-- Ícone: grupo de pessoas com seta para baixo -->
+        <svg class="prob-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/><line x1="21" y1="10" x2="21" y2="16"/><polyline points="18 13 21 16 24 13"/>
+        </svg>
+        <h3>Base parada</h3>
+        <p>Clientes antigos que poderiam voltar, mas ninguém os reativa. Um ativo dormindo no banco de dados.</p>
+      </div>
+
+      <div class="prob-card rv d4">
+        <!-- Ícone: sinal instável -->
+        <svg class="prob-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+        </svg>
+        <h3>Faturamento instável</h3>
+        <p>Picos e quedas sem previsibilidade. Decisões no achismo. Crescimento dependente de sorte, não de sistema.</p>
+      </div>
+
+    </div>
+
+    <div class="prob-impact rv">
+      <p>"O problema não é gerar movimento. É não transformar atendimento em receita previsível."</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== MECANISMO ===================== -->
+<section id="mecanismo">
+  <div class="container">
+    <div class="rv"><span class="badge">METODOLOGIA EXCLUSIVA</span></div>
+    <h2 class="section-title rv d1">Motor de Receita<br>Veterinária Previsível</h2>
+    <p class="section-sub rv d2">Não é marketing. Não é atendimento. É engenharia de faturamento.</p>
+
+    <p class="mec-intro rv d3">
+      Enquanto o mercado avalia soluções por seguidores, volume de atendimento e tráfego — a Sigma mudou os critérios. Crescimento com controle. Receita previsível. Agenda protegida. Atendimento processual.
+    </p>
+
+    <div class="timeline rv">
+      <div class="tl-step">
+        <div class="tl-num">01</div>
+        <div class="tl-title">Captação<br>com Intenção</div>
+        <p class="tl-desc">Atrair demanda com potencial real de conversão. Não curiosos — tutores com intenção de compra.</p>
+      </div>
+      <div class="tl-step">
+        <div class="tl-num">02</div>
+        <div class="tl-title">Agenda<br>Viva</div>
+        <p class="tl-desc">Gestão ativa para reduzir faltas, cancelamentos e ociosidade. Fim do no-show.</p>
+      </div>
+      <div class="tl-step">
+        <div class="tl-num">03</div>
+        <div class="tl-title">Base<br>Ativa</div>
+        <p class="tl-desc">Reativação estruturada de clientes antigos como alavanca de crescimento imediato.</p>
+      </div>
+      <div class="tl-step">
+        <div class="tl-num">04</div>
+        <div class="tl-title">Conversão<br>Clínica</div>
+        <p class="tl-desc">Atendimento que conduz decisão. Follow-up consistente. Linguagem que fecha.</p>
+      </div>
+      <div class="tl-step">
+        <div class="tl-num">05</div>
+        <div class="tl-title">Receita<br>Contínua</div>
+        <p class="tl-desc">Recorrência, previsibilidade e indicadores claros. Decisões baseadas em dados, não em intuição.</p>
+      </div>
+    </div>
+
+    <div class="mec-quote rv">
+      <p>"Nada isolado. Nada improvisado.<br>Tudo integrado em um único sistema."</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROVA ===================== -->
+<section id="prova">
+  <div class="container">
+    <div class="rv"><span class="badge">RESULTADO REAL</span></div>
+    <h2 class="section-title rv d1">O que acontece quando<br>o sistema é implementado</h2>
+
+    <div class="proof-card rv d2">
+      <div class="proof-head">
+        <div>
+          <div class="proof-name">Hospital Veterinário São Bernardo</div>
+          <div class="proof-detail">Curitiba / PR &nbsp;·&nbsp; 57 anos de história</div>
+        </div>
+        <span class="proof-lbl">Caso Real</span>
+      </div>
+
+      <div class="proof-metrics">
+        <div class="proof-met">
+          <span class="proof-num" data-target="4370"   data-prefix="R$&nbsp;" data-fmt="cur">R$ 0</span>
+          <span class="proof-lbl2">Investido</span>
+        </div>
+        <div class="proof-met">
+          <span class="proof-num" data-target="133367" data-prefix="R$&nbsp;" data-fmt="cur">R$ 0</span>
+          <span class="proof-lbl2">Receita gerada</span>
+        </div>
+        <div class="proof-met">
+          <span class="proof-num" data-target="3053"   data-suffix="%" data-fmt="pct">0%</span>
+          <span class="proof-lbl2">ROI</span>
+        </div>
+        <div class="proof-met">
+          <span class="proof-num" data-target="37" data-fmt="num">0</span>
+          <span class="proof-lbl2">Novos pacientes</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="proof-caption rv">
+      <p>Para cada <strong>R$ 1 investido</strong>, retornou <strong>R$ 30,53</strong>.<br>Em um único mês. Com sistema.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DIFERENCIAIS ===================== -->
+<section id="diferenciais">
+  <div class="container">
+    <div class="rv"><span class="badge">POSICIONAMENTO</span></div>
+    <h2 class="section-title rv d1">Por que a Sigma<br>e não outra agência?</h2>
+
+    <div class="diff-grid">
+
+      <div class="diff-col neg rv d1">
+        <div class="diff-col-t">O que NÃO fazemos</div>
+        <ul class="diff-ul neg">
+          <li><span class="ix">✗</span> Vendemos posts sem estratégia</li>
+          <li><span class="ix">✗</span> Entregamos relatório de alcance</li>
+          <li><span class="ix">✗</span> Geramos lead frio sem qualificação</li>
+          <li><span class="ix">✗</span> Sumimos depois do contrato</li>
+          <li><span class="ix">✗</span> Dependemos só de tráfego</li>
+        </ul>
+      </div>
+
+      <div class="diff-col pos rv d2">
+        <div class="diff-col-t">O que FAZEMOS</div>
+        <ul class="diff-ul pos">
+          <li><span class="ic">✓</span> Especialistas exclusivos em clínicas veterinárias</li>
+          <li><span class="ic">✓</span> Metodologia própria validada em 45+ clínicas</li>
+          <li><span class="ic">✓</span> Marketing + Comercial + Tecnologia integrados</li>
+          <li><span class="ic">✓</span> Resultado em receita, não em alcance</li>
+          <li><span class="ic">✓</span> Sem multa de contrato — ficamos porque gera resultado</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="diff-quote rv">
+      <p>"Enquanto outros vendem movimento, nós entregamos controle, previsibilidade e continuidade."</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== JORNADA ===================== -->
+<section id="jornada">
+  <div class="container">
+    <div class="centered rv"><span class="badge">O PROCESSO</span></div>
+    <h2 class="section-title centered rv d1">Como funciona na prática</h2>
+
+    <div class="jrn-grid" style="margin-top:56px">
+
+      <div class="jrn-card rv d1">
+        <!-- ícone: lupa com + -->
+        <svg class="jrn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/>
+        </svg>
+        <div class="jrn-phase">Fase 1</div>
+        <h3 class="jrn-title">Diagnóstico</h3>
+        <p class="jrn-desc">Mapeamos vazamentos de receita, gargalos da agenda e oportunidades ocultas. Você sai sabendo exatamente onde a clínica perde dinheiro.</p>
+      </div>
+
+      <div class="jrn-card rv d2">
+        <!-- ícone: engrenagem -->
+        <svg class="jrn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="3"/>
+          <path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14M14.83 9.17a4 4 0 0 1 0 5.66M9.17 9.17a4 4 0 0 0 0 5.66"/>
+        </svg>
+        <div class="jrn-phase">Fase 2</div>
+        <h3 class="jrn-title">Implementação</h3>
+        <p class="jrn-desc">Construção do sistema: agenda viva, base ativa, conversão e follow-up integrados. O Motor começa a rodar.</p>
+      </div>
+
+      <div class="jrn-card rv d3">
+        <!-- ícone: gráfico crescendo -->
+        <svg class="jrn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>
+        </svg>
+        <div class="jrn-phase">Fase 3</div>
+        <h3 class="jrn-title">Acompanhamento</h3>
+        <p class="jrn-desc">Ajustes, correções e consolidação dos resultados até a clínica atingir previsibilidade financeira.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== OFERTAS ===================== -->
+<section id="ofertas">
+  <div class="container">
+    <div class="centered rv"><span class="badge">AS SOLUÇÕES</span></div>
+    <h2 class="section-title centered rv d1">Cinco caminhos.<br>Um único destino.</h2>
+    <p class="section-sub centered rv d2">Clique em cada solução para descobrir o que ela faz pela sua clínica.</p>
+
+    <!-- Linha 1: 3 cards -->
+    <div class="offers-row1">
+
+      <!-- 1 — A Radiografia -->
+      <div class="oc rv d1">
+        <span class="oc-badge">PORTA DE ENTRADA</span>
+        <h3 class="oc-title">A Radiografia</h3>
+        <p class="oc-tagline">"O que sua clínica não sabe que está perdendo — em 72 horas."</p>
+        <button class="oc-reveal-btn" onclick="toggleOffer(this)">
+          <span class="btn-txt">Revelar esta solução</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="oc-panel">
+          <div class="oc-panel-in">
+            <div class="oc-price">R$ 497</div>
+            <div class="oc-note">pagamento único</div>
+            <p class="oc-desc">Diagnóstico completo do funil da clínica. Em 72h você recebe um mapa de onde está perdendo receita e um plano de ação para os próximos 60 dias.</p>
+            <div class="oc-inc">
+              <div class="oc-inc-title">Inclui</div>
+              <ul>
+                <li>Reunião de diagnóstico (45 min)</li>
+                <li>Análise do funil completo</li>
+                <li>Relatório PDF com gargalos identificados</li>
+                <li>Plano de ação priorizado por impacto</li>
+              </ul>
+            </div>
+            <div class="oc-ideal">Ideal para: <span>quem quer clareza antes de investir</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2 — O Motor — DESTAQUE -->
+      <div class="oc feat rv d2">
+        <span class="oc-badge">MAIS ESCOLHIDA</span>
+        <h3 class="oc-title">O Motor</h3>
+        <p class="oc-tagline">"O sistema que separa clínicas que crescem das que estacionam."</p>
+        <button class="oc-reveal-btn" onclick="toggleOffer(this)">
+          <span class="btn-txt">Revelar esta solução</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="oc-panel">
+          <div class="oc-panel-in">
+            <div class="oc-price">R$ 6.000</div>
+            <div class="oc-note">até 3× de R$ 2.000 &nbsp;·&nbsp; 90 dias</div>
+            <p class="oc-desc">Implementação completa do Motor de Receita Veterinária Previsível. Do diagnóstico ao sistema rodando.</p>
+            <div class="oc-phases">
+              <div class="oc-ph">
+                <span class="oc-ph-n">F1</span>
+                <span class="oc-ph-t"><strong>Diagnóstico Estrutural</strong> — mapeamento de vazamentos e oportunidades ocultas.</span>
+              </div>
+              <div class="oc-ph">
+                <span class="oc-ph-n">F2</span>
+                <span class="oc-ph-t"><strong>Implementação do Motor</strong> — construção do sistema integrado.</span>
+              </div>
+              <div class="oc-ph">
+                <span class="oc-ph-n">F3</span>
+                <span class="oc-ph-t"><strong>Acompanhamento Estratégico</strong> — ajustes e consolidação até gerar previsibilidade.</span>
+              </div>
+            </div>
+            <div class="oc-ideal">Ideal para: <span>clínicas que querem estruturar de forma completa</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 — O Guardião -->
+      <div class="oc rv d3">
+        <span class="oc-badge">RECORRÊNCIA</span>
+        <h3 class="oc-title">O Guardião</h3>
+        <p class="oc-tagline">"Para quem não quer perder o que levou anos para construir."</p>
+        <button class="oc-reveal-btn" onclick="toggleOffer(this)">
+          <span class="btn-txt">Revelar esta solução</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="oc-panel">
+          <div class="oc-panel-in">
+            <div class="oc-price">R$ 1.800<sub>/mês</sub></div>
+            <div class="oc-note">continuidade após implementação</div>
+            <p class="oc-desc">Acompanhamento estratégico contínuo. Para clínicas que já têm o sistema implementado e querem manter, otimizar e crescer mês a mês.</p>
+            <div class="oc-inc">
+              <div class="oc-inc-title">Inclui</div>
+              <ul>
+                <li>Gestão mensal de marketing e comercial</li>
+                <li>Otimização de processos</li>
+                <li>Relatórios e indicadores mensais</li>
+                <li>Suporte contínuo</li>
+              </ul>
+            </div>
+            <div class="oc-ideal">Ideal para: <span>continuidade após implementação</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /row1 -->
+
+    <!-- Linha 2: 2 cards -->
+    <div class="offers-row2">
+
+      <!-- 4 — A Máquina -->
+      <div class="oc rv d1">
+        <span class="oc-badge">TECNOLOGIA</span>
+        <h3 class="oc-title">A Máquina</h3>
+        <p class="oc-tagline">"O comercial da sua clínica organizado em um único lugar — sem caos."</p>
+        <button class="oc-reveal-btn" onclick="toggleOffer(this)">
+          <span class="btn-txt">Revelar esta solução</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="oc-panel">
+          <div class="oc-panel-in">
+            <div class="oc-price">R$ 1.500</div>
+            <div class="oc-note">setup único pela Sigma + ferramenta a partir de $25 USD/mês (cobrado pelo Kommo)</div>
+            <p class="oc-desc">Configuração completa do CRM Kommo para a realidade da clínica. Pipeline de leads, funil de agendamento e automação de follow-up.</p>
+            <div class="oc-inc">
+              <div class="oc-inc-title">Inclui</div>
+              <ul>
+                <li>Configuração completa do Kommo</li>
+                <li>Pipeline personalizado para clínica vet</li>
+                <li>Automação de lembretes e follow-up</li>
+                <li>Treinamento da equipe</li>
+              </ul>
+            </div>
+            <div class="oc-nota">Após a implementação, a mensalidade da ferramenta é paga diretamente ao Kommo em dólar. O valor em reais varia conforme o câmbio do dia.</div>
+            <div class="oc-ideal">Ideal para: <span>organizar o comercial com tecnologia</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5 — O Silencioso -->
+      <div class="oc rv d2">
+        <span class="oc-badge gb">ESCALA</span>
+        <h3 class="oc-title">O Silencioso</h3>
+        <p class="oc-tagline">"Atende, qualifica e agenda. Sem precisar de você."</p>
+        <button class="oc-reveal-btn" onclick="toggleOffer(this)">
+          <span class="btn-txt">Revelar esta solução</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="oc-panel">
+          <div class="oc-panel-in">
+            <div class="oc-price">R$ 5.000 <sub>setup</sub></div>
+            <div class="oc-note">+ R$ 1.300/mês</div>
+            <p class="oc-desc">Estrutura de IA e automação integrada à operação da clínica. Não é chatbot — é sistema que trabalha enquanto você atende.</p>
+            <div class="oc-inc">
+              <div class="oc-inc-title">Inclui</div>
+              <ul>
+                <li>Atendimento automatizado no WhatsApp</li>
+                <li>Triagem e qualificação de leads</li>
+                <li>Follow-up automático de orçamentos</li>
+                <li>Confirmação e lembrete de agendamentos</li>
+                <li>Integração com CRM</li>
+                <li>Apoio ao time comercial</li>
+              </ul>
+            </div>
+            <div class="oc-ideal">Ideal para: <span>clínicas que querem escalar sem aumentar equipe</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /row2 -->
+  </div>
+</section>
+
+<!-- ===================== CTA ===================== -->
+<section id="cta">
+  <div class="cta-orb"></div>
+  <div class="container" style="position:relative;z-index:1;text-align:center">
+    <div class="rv"><span class="badge" style="margin-bottom:32px">PRÓXIMO PASSO</span></div>
+
+    <h2 class="cta-h2 rv d1">
+      Sua clínica já tem o movimento.<br>
+      <em>Falta o controle.</em>
+    </h2>
+
+    <p class="cta-p rv d2">
+      Diagnóstico gratuito. Sem compromisso.<br>
+      Só clareza sobre onde sua clínica está<br>
+      deixando dinheiro na mesa.
+    </p>
+
+    <div class="cta-btns rv d3">
+      <a href="https://wa.me/5544999251952" target="_blank" rel="noopener" class="btn-p">
+        <!-- WhatsApp icon -->
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+        </svg>
+        Agendar Diagnóstico Gratuito
+      </a>
+      <a href="https://wa.me/5544999251952" target="_blank" rel="noopener" class="btn-s">
+        Falar com a Sigma
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="container">
+    <div class="ft-logo">Assessoria Sigma</div>
+    <div class="ft-tag">Movimento. Decisão. Previsibilidade.</div>
+    <div class="ft-div"></div>
+    <div class="ft-info">
+      <a href="mailto:aagenciasigma@gmail.com">aagenciasigma@gmail.com</a> &nbsp;·&nbsp;
+      <a href="https://wa.me/5544999251952">(44) 99925-1952</a><br>
+      Especialistas em clínicas veterinárias
+    </div>
+    <div class="ft-copy">© 2026 Assessoria Sigma. Todos os direitos reservados.</div>
+  </div>
+</footer>
+
+<!-- Botão flutuante WhatsApp -->
+<a href="https://wa.me/5544999251952" target="_blank" rel="noopener" class="wa-float">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+  </svg>
+  <span>Falar com a Sigma</span>
+</a>
+
+<script>
+  /* ===== SCROLL PROGRESS ===== */
+  const sp = document.getElementById('sp');
+  window.addEventListener('scroll', () => {
+    const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100;
+    sp.style.width = pct + '%';
+  }, { passive: true });
+
+  /* ===== NAVBAR ===== */
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('s', window.scrollY > 40);
+  }, { passive: true });
+
+  /* ===== MOBILE MENU ===== */
+  const mobMenu = document.getElementById('mobMenu');
+  function mobOn()  { mobMenu.classList.add('open');    document.body.style.overflow = 'hidden'; }
+  function mobOff() { mobMenu.classList.remove('open'); document.body.style.overflow = ''; }
+  document.getElementById('mobClose').addEventListener('click', mobOff);
+
+  /* ===== REVEAL ===== */
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.10 });
+  document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+
+  /* ===== OFFER ACCORDION ===== */
+  function toggleOffer(btn) {
+    const panel  = btn.nextElementSibling;
+    const isOpen = btn.classList.contains('open');
+    btn.classList.toggle('open', !isOpen);
+    panel.classList.toggle('open', !isOpen);
+    btn.querySelector('.btn-txt').textContent = isOpen ? 'Revelar esta solução' : 'Ocultar detalhes';
+  }
+
+  /* ===== COUNT-UP ===== */
+  function fmtNum(n, fmt, prefix, suffix) {
+    const loc = n.toLocaleString('pt-BR');
+    if (fmt === 'cur') return (prefix || '') + loc;
+    if (fmt === 'pct') return loc + (suffix || '');
+    return loc + (suffix || '');
+  }
+
+  const countObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el     = e.target;
+      const target = parseInt(el.dataset.target);
+      const fmt    = el.dataset.fmt    || 'num';
+      const prefix = el.dataset.prefix || '';
+      const suffix = el.dataset.suffix || '';
+      const dur    = 1800;
+      const t0     = performance.now();
+
+      (function tick(now) {
+        const prog = Math.min((now - t0) / dur, 1);
+        const ease = 1 - Math.pow(1 - prog, 3);
+        el.textContent = fmtNum(Math.round(ease * target), fmt, prefix, suffix);
+        if (prog < 1) requestAnimationFrame(tick);
+        else el.textContent = fmtNum(target, fmt, prefix, suffix);
+      })(t0);
+
+      countObs.unobserve(el);
+    });
+  }, { threshold: 0.4 });
+  document.querySelectorAll('[data-target]').forEach(el => countObs.observe(el));
+</script>
+
+</body>
+</html>

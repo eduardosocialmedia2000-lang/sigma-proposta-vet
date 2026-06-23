@@ -523,6 +523,66 @@ body {
 .btn:hover { background: #0d3828; transform: translateY(-2px); }
 .slide-terracotta .btn { background: var(--ink-deep); }
 
+/* ─── HERO TITLE (alias para .hero nos slides) ───────────────────────────── */
+.hero-title {
+  font-family: var(--display);
+  font-size: clamp(2.8rem, 6.5vw, 5.6rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  margin-bottom: 28px;
+}
+
+/* ─── SLIDE NUM ──────────────────────────────────────────────────────────── */
+.slide-num {
+  position: absolute;
+  bottom: 28px;
+  right: 32px;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  opacity: 0.28;
+}
+
+/* ─── HIGHLIGHT DE DOR ───────────────────────────────────────────────────── */
+.highlight-pain {
+  color: var(--terracotta) !important;
+  font-weight: 600;
+}
+.pain-item .highlight-pain.txt,
+.pain-item span.highlight-pain {
+  opacity: 1;
+}
+
+/* ─── MSTEP HIGHLIGHT ────────────────────────────────────────────────────── */
+.mstep-highlight {
+  border-left-color: var(--terracotta) !important;
+  background: rgba(196,98,45,0.06);
+  border-radius: 0 8px 8px 0;
+  padding: 10px 10px 10px 24px;
+  margin-left: -10px;
+}
+.mstep-highlight h4 { color: var(--terracotta); }
+
+.tag-highlight {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  color: var(--terracotta);
+  background: rgba(196,98,45,0.12);
+  border: 1px solid rgba(196,98,45,0.25);
+  border-radius: 4px;
+  padding: 2px 8px;
+  vertical-align: middle;
+  margin-left: 8px;
+}
+
+/* ─── ENTREG-CELL HIGHLIGHT ──────────────────────────────────────────────── */
+.entreg-cell-highlight {
+  border-color: rgba(196,98,45,0.35) !important;
+  background: rgba(196,98,45,0.06) !important;
+}
+
 /* ─── RESPONSIVE ─────────────────────────────────────────────────────────── */
 @media (max-width: 900px) {
   .slide {

@@ -583,6 +583,22 @@ body {
   background: rgba(196,98,45,0.06) !important;
 }
 
+/* ─── SLIDE LOCKED (oferta oculta) ──────────────────────────────────────── */
+.slide-locked {
+  display: none !important;
+}
+
+/* ─── BTN UNLOCK ─────────────────────────────────────────────────────────── */
+.btn-unlock {
+  background: var(--ink-deep) !important;
+  color: var(--paper) !important;
+  font-size: 1.1rem !important;
+  padding: 22px 48px !important;
+  border: 2px solid rgba(255,255,255,0.15) !important;
+  letter-spacing: 0.01em;
+}
+.btn-unlock:hover { background: #0d3828 !important; transform: translateY(-2px); }
+
 /* ─── OFFER CARDS ────────────────────────────────────────────────────────── */
 .offer-card {
   border-radius: 14px;

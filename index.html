@@ -153,8 +153,24 @@
   <div class="slide-num">07</div>
 </section>
 
-<!-- ── S8 INVESTIMENTO (preço padrão, sem revelar o especial ainda) ── -->
-<section class="slide slide-dark" data-block="OFERTA" id="s8">
+<!-- ── S7b TRANSIÇÃO → INVESTIMENTO ── -->
+<section class="slide slide-dark" data-block="OFERTA" id="s7b">
+  <svg class="motor-bg" viewBox="0 0 400 400" fill="none">
+    <g class="gear spin-slow" stroke="#FAF7F0" stroke-opacity="0.12" stroke-width="1.4"><circle cx="200" cy="200" r="92"/><circle cx="200" cy="200" r="70"/></g>
+  </svg>
+  <div class="fade-up">
+    <div class="eyebrow">Quanto custa × quanto vale</div>
+    <h1 class="hero-title" style="font-size:clamp(2.4rem,6vw,4.8rem);">Motor montado.<br><span class="serif-italic">Quanto é o investimento?</span></h1>
+    <p class="lede" style="margin-top:8px; margin-bottom:40px;">Tudo que vimos até aqui está incluído em uma única mensalidade. Sem taxa de implementação.</p>
+    <button class="btn btn-unlock" id="btnUnlockPrice" onclick="unlockPrice()">
+      🔓 Ver investimento
+    </button>
+  </div>
+  <div class="slide-num">08</div>
+</section>
+
+<!-- ── S8 INVESTIMENTO (preço padrão — oculto até desbloquear) ── -->
+<section class="slide slide-dark slide-locked" data-block="OFERTA" id="s8">
   <div class="fade-up" style="width:100%;">
     <div class="eyebrow">Investimento</div>
     <h2 class="title">Dois números.<br>Funções diferentes.</h2>
@@ -172,7 +188,7 @@
     </div>
     <p class="lede" style="margin-top:36px; font-family:var(--display); font-style:italic; font-size:1.1rem; opacity:1;">Um sem o outro não funciona. Por isso o motor vem antes do combustível.</p>
   </div>
-  <div class="slide-num">08</div>
+  <div class="slide-num">09</div>
 </section>
 
 <!-- ── S9 GARANTIA ── -->
@@ -273,6 +289,15 @@ new IntersectionObserver((entries) => {
     });
   }, {threshold:[.5], root:deck}).observe(s)
 );
+
+function unlockPrice() {
+  const slide = document.getElementById('s8');
+  const btn = document.getElementById('btnUnlockPrice');
+  slide.classList.remove('slide-locked');
+  btn.textContent = '✓ Investimento revelado — próximo slide';
+  btn.onclick = () => slide.scrollIntoView({behavior:'smooth'});
+  setTimeout(() => slide.scrollIntoView({behavior:'smooth'}), 300);
+}
 
 function unlockOffer() {
   const locked = document.getElementById('s11');

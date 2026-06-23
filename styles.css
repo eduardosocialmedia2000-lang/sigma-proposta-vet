@@ -583,6 +583,97 @@ body {
   background: rgba(196,98,45,0.06) !important;
 }
 
+/* ─── OFFER CARDS ────────────────────────────────────────────────────────── */
+.offer-card {
+  border-radius: 14px;
+  padding: 32px 36px;
+  max-width: 520px;
+  margin-top: 16px;
+}
+.offer-card-hero {
+  background: rgba(255,255,255,0.06);
+  border: 2px solid var(--terracotta);
+}
+.offer-card-std {
+  background: rgba(0,0,0,0.04);
+  border: 1px solid rgba(0,0,0,0.12);
+  max-width: 100%;
+}
+.offer-badge {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  color: var(--terracotta);
+  background: rgba(196,98,45,0.12);
+  border: 1px solid rgba(196,98,45,0.3);
+  border-radius: 4px;
+  padding: 4px 10px;
+  margin-bottom: 16px;
+}
+.offer-badge-std {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  color: var(--ink-deep);
+  background: rgba(0,0,0,0.07);
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 4px;
+  padding: 4px 10px;
+  margin-bottom: 16px;
+  opacity: 0.6;
+}
+.offer-price {
+  font-family: var(--display);
+  font-size: clamp(2.8rem,5vw,4rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+}
+.offer-per {
+  font-size: 1.2rem;
+  font-weight: 400;
+  opacity: 0.55;
+  letter-spacing: 0;
+}
+.offer-sub {
+  font-size: 0.88rem;
+  opacity: 0.5;
+  margin-bottom: 20px;
+  font-family: var(--mono);
+  letter-spacing: 0.05em;
+}
+.offer-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+.offer-list li {
+  font-size: 0.93rem;
+  line-height: 1.5;
+  opacity: 0.8;
+  padding-left: 18px;
+  position: relative;
+}
+.offer-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--terracotta);
+  font-family: var(--display);
+}
+.btn-hero {
+  background: var(--terracotta) !important;
+  color: var(--paper) !important;
+  font-size: 1.05rem !important;
+  padding: 20px 44px !important;
+}
+.btn-hero:hover { background: #a8521f !important; }
+
 /* ─── RESPONSIVE ─────────────────────────────────────────────────────────── */
 @media (max-width: 900px) {
   .slide {
